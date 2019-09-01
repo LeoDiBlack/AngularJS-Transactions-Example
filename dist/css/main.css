@@ -1,0 +1,242 @@
+html, body {
+    height: 100%;
+}
+
+p, h1, h2, h3, h4, h5, span, input {
+    font-family: 'Kanit', sans-serif;
+}
+
+.fill-height {
+    min-height: 100%;
+    height:auto !important; /* cross-browser */
+    height: 100%; /* cross-browser */
+}
+
+.stick-header {
+    border-bottom: 1px solid orange;
+}
+
+.stick-header img {
+    max-width:100%;
+    max-height:100%;
+}
+
+.mainContent {
+    background-image: url('../img/background.jpg');
+    background-size: 100% 100%;
+}
+
+.transferContainer,
+.historyContainer {
+    width: 100%;
+}
+
+.transferContainerHeader {
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);   
+}
+
+.transferContainerHeader .row,
+.historyContainerHeader .row {
+    background-color: #0C8397;    
+}
+
+.row .iconElement img {
+    width: 45px;
+    height: 45px;
+    opacity: 0.8;
+}
+
+.row .titleElement {
+    position: relative;
+}
+
+.row .titleElement span {
+    position: absolute;
+    top: 25%;
+    color: white;
+    font-weight: 100;
+}
+
+.transferContainerContent {
+    background-color: white;
+    box-shadow: 1px 3px 5px 0px rgba(0,0,0,0.75);
+}
+
+.historyContainerHeader {
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);   
+}
+
+.historyContainerContent {
+    background-color: white;
+    box-shadow: 1px 3px 5px 0px rgba(0,0,0,0.75);
+}
+
+.historyTableCell,
+.historyTableCellLast {
+    text-align: center;
+    border-right: 1px solid gray;
+    margin-right: 15px;
+    margin-left: 5px;
+}
+
+.historyTable p {
+    margin: 0;
+}
+
+.historyTable img {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+}
+
+.historyTableCell.row.color12a580::before,
+.historyTableCellLast.row.color12a580::before {
+    color: #12a580;
+    background-color: #12a580;
+    content: "";
+    border: 1px solid;
+    width: 10px;
+}
+
+.historyTableCell.row.colord51271::before,
+.historyTableCellLast.row.colord51271::before {
+    color: #d51271;
+    background-color: #d51271;
+    content: "";
+    border: 1px solid;
+    width: 10px;
+}
+
+.historyTableCell.row.colorc12020::before,
+.historyTableCellLast.row.colorc12020::before {
+    color: #c12020;
+    background-color: #c12020;
+    content: "";
+    border: 1px solid;
+    width: 10px;
+}
+
+.historyTableCell.row.colorc89616::before,
+.historyTableCellLast.row.colorc89616::before {
+    color: #c89616;
+    background-color: #c89616;
+    content: "";
+    border: 1px solid;
+    width: 10px;
+}
+
+.historyTableCell.row.colore25a2c::before,
+.historyTableCellLast.row.colore25a2c::before {
+    color: #e25a2c;
+    background-color: #e25a2c;
+    content: "";
+    border: 1px solid;
+    width: 10px;
+}
+
+.historyTableCell.row.colorfbbb1b::before,
+.historyTableCellLast.row.colorfbbb1b::before {
+    color: #fbbb1b;
+    background-color: #fbbb1b;
+    content: "";
+    border: 1px solid;
+    width: 10px;
+}
+
+.historyTableCell.row.color1180aa::before,
+.historyTableCellLast.row.color1180aa::before {
+    color: #1180aa;
+    background-color: #1180aa;
+    content: "";
+    border: 1px solid;
+    width: 10px;
+}
+
+.historyTableCell.row {
+    border-top: 1px solid gray;
+}
+
+.historyTableCellLast.row {
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+}
+
+/* Form Elements */
+.btn-submit {
+    width: 100%;
+    color: #fff;
+    background-color: #EE7033;
+    border-color: #EE7033;
+}
+
+#searchInput {
+    padding: 0 10px;
+}
+
+.sortElements {
+    padding: 10px 0;
+}
+
+.sortByLabel {
+    font-size: 15px;
+    padding: 0px 10px;
+}
+
+.sortOrder:after {
+    content: '\25b2';
+}
+
+.sortOrder.reverse:after {
+    content: '\25bc';
+}
+
+/* Helpers */
+.centeredElement {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.boldText {
+    font-weight: bold;
+}
+
+.alignItemsStart {
+    align-items: flex-start;
+}
+
+.alignItemsEnd {
+    align-items: flex-end;
+}
+
+/* Overrides */
+::placeholder {
+    opacity: 0.7; 
+}
+
+.form-group label {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="search"],
+select.form-control {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #D6D2CE;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+select.form-control:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}

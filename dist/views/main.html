@@ -1,0 +1,95 @@
+<div class="container-fluid stick-header">
+    <div class="mx-5 my-3 row">
+        <div class="col-lg-4">
+            <img src="../img/logo.jpg">
+        </div>
+    </div>
+</div>
+<div class="container-fluid mainContent fill-height">
+    <div class="mx-5 row">
+        <div class="mt-5 transferContainer col-lg-4">
+            <div class="transferContainerHeader container-fluid">
+                <div class="row"> 
+                    <div class="iconElement col-lg-4">
+                        <img src="../img/icons/exchange.png">
+                    </div>
+                    <div class="titleElement col-lg-8">
+                        <span>Make a Transfer</span>
+                    </div>
+                </div>
+            </div>
+            <div class="py-4 transferContainerContent container-fluid">
+                <form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>    
+                    <div class="row"> 
+                        <div class="form-group col-lg-12">
+                                <label>From Account</label>
+                                <input type="text" name="account" placeholder="Free Checking(4692) - $5824.76" class="form-control" value="{{user.account + ' - $' + user.balance}}" disabled>
+                        </div>
+                    </div>
+                    <div class="row"> 
+                        <div class="form-group col-lg-12" ng-class="{ 'has-error' : userForm.destinatary.$invalid && !userForm.destinatary.$pristine }">
+                                <label>To Account</label>
+                                <input type="text" name="destinatary" ng-model="destinatary" placeholder="Georgia Power Electric Company" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="row"> 
+                        <div class="form-group col-lg-12" ng-class="{ 'has-error' : userForm.amountToSend.$invalid && !userForm.amountToSend.$pristine }">
+                                <label>Amount</label>
+                                <input type="number" ng-change="maxLengthCheck(amountToSend)" name="amountToSend" ng-model="amountToSend" min="1" value="{{amount | currency}}" placeholder="$ 0.00" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4"></div>
+                        <div class="col-lg-8">
+                            <button type="button" ng-disabled="userForm.$invalid" ng-click="transferAction(destinatary, amountToSend)" class="btn btn-submit">SUBMIT</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="my-5 historyContainer col-lg-8">
+            <div class="historyContainerHeader container-fluid">
+                <div class="row"> 
+                    <div class="iconElement col-lg-4">
+                        <img src="../img/icons/suitcase.png">
+                    </div>
+                    <div class="titleElement col-lg-8">    
+                        <span>Recent Transactions</span>
+                    </div>
+                </div>
+            </div>
+            <div class="py-4 historyContainerContent container-fluid">
+                <div class="row"> 
+                    <div class="col-lg-6 searchElements centeredElement">
+                            <input type="search" name="searchText" placeholder="Search by typing..." class="form-control" id="searchInput" ng-model="searchText" required>
+                    </div>
+                    <div class="col-lg-6 sortElements">
+                        <span class="sortByLabel boldText">Sort by</span>
+                        <div class="btn-group">
+                            <button type="button" ng-click="sortBy('transactionDate')" class="btn btn-outline-secondary btn-sort">
+                                DATE
+                                <span class="sortOrder" ng-show="propertyName === 'transactionDate'" ng-class="{reverse: reverse}"></span>
+                            </button>
+                            <button type="button" ng-click="sortBy('merchant')" class="btn btn-outline-secondary btn-sort">
+                                BENEFICIARY
+                                <span class="sortOrder" ng-show="propertyName === 'merchant'" ng-class="{reverse: reverse}"></span>
+                            </button>
+                            <button type="button" ng-click="sortBy('amount')" class="btn btn-outline-secondary btn-sort">
+                                AMOUNT
+                                <span class="sortOrder" ng-show="propertyName === 'amount'" ng-class="{reverse: reverse}"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="py-3 historyTable">
+                    <div ng-repeat="(key, value) in transactions | filter:searchText" ng-class="($last) ? 'historyTableCellLast row color{{ value.categoryCode.replace('#', '')}}' : 'historyTableCell row color{{ value.categoryCode.replace('#', '')}}'"> 
+                        <div class="col-lg-2 row mobile{{ value.categoryCode.replace('#', '')}}"><div class="col-lg-12 centeredElement"><span>{{ value.transactionDate | date: 'MMM. dd'}}</span></div></div>
+                        <div class="col-lg-2 centeredElement"><img ng-src="{{ value.merchantLogo }}"/></div>
+                        <div class="col-lg-4 centeredElement alignItemsStart"><p class="boldText">{{ value.merchant }}</p><span>{{ value.transactionType }}</span></div>
+                        <div class="col-lg-4 centeredElement alignItemsEnd boldText"><span>-${{ value.amount }}</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>
